@@ -1,0 +1,5 @@
+<h2>저장된 전체 데이터</h2>
+{% for score in all_scores %}
+  <p>{{ score.myname1 }} : {{ score.score1 }}점</p>
+{% endfor %}
+<a href="/myapp/">다시 입력하기</a>

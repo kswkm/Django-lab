@@ -1,0 +1,5 @@
+<form method="post">
+  {% csrf_token %}       <!-- 보안 토큰, POST에는 필수 -->
+  {{ form.as_p }}        <!-- 입력칸 자동 렌더링 -->
+  <button type="submit">저장</button>
+</form>
