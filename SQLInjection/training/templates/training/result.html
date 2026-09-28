@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    <p>SQL: {{ sql_text }}</p>
+    {% if params is not None %}
+        <p>Params: {{ params }}</p>
+    {% endif %}
+
+    {% if results %}
+        <h2>데이터 결과:</h2>
+        <ul>
+            {% for user in results %}
+                <li>({{ user.id }}, '{{ user.user_id }}', '{{ user.password }}')</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p><strong>일치하는 데이터가 없습니다.</strong></p>
+    {% endif %}
+
+    <p>
+        <a href="{% url 'login' %}?mode={{ mode }}">다시 입력</a> |
+        <a href="{% url 'data' %}">목록</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>인증 DB 데이터</title>
+</head>
+<body>
+    <h1>인증 DB 데이터</h1>
+
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Password</th>
+        </tr>
+        {% for user in auth_users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.user_id }}</td>
+                <td>{{ user.password }}</td>
+            </tr>
+        {% empty %}
+            <tr><td colspan="3">등록된 데이터가 없습니다.</td></tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="{% url 'login' %}">로그인 시도 폼</a></p>
+</body>
+</html>
