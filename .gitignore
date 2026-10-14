@@ -1,0 +1,11 @@
+# IDE (PyCharm)
+.idea/
+WelcomeScreen/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
