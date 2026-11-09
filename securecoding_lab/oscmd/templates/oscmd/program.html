@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}프로그램 실행{% endblock %}
+{% block content %}
+<h2>프로그램 실행{% if safe %} (안전한 코드){% else %} (취약한 코드){% endif %}</h2>
+<form method="post" action="{% url action_url %}">
+    {% csrf_token %}
+    app_name:
+    <select name="app_name">
+        {% for ex in examples %}
+        <option value="{{ ex.value }}"{% if ex.value == app_name %} selected{% endif %}>{{ ex.label }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="실행">
+</form>
+{% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+{% if output %}<pre style="color:red">{{ output }}</pre>{% endif %}
+{% if allow_program %}<p>허용 목록(ALLOW_PROGRAM): {{ allow_program }}</p>{% endif %}
+<p><a href="{% url 'oscmd:index' %}">← 돌아가기</a></p>
+{% endblock %}

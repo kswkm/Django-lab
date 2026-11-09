@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}오류{% endblock %}
+{% block content %}
+<p style="color:red">{{ error|default:ERROR|default:"요청을 처리할 수 없습니다." }}</p>
+<p><a href="/">← 홈</a></p>
+{% endblock %}

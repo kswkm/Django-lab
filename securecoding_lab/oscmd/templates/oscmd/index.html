@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}운영체제 명령어 삽입{% endblock %}
+{% block content %}
+<h2>운영체제 명령어 삽입</h2>
+<ul>
+    <li><a href="{% url 'oscmd:ping_vulnerable' %}">Ping a device - 취약한 코드</a></li>
+    <li><a href="{% url 'oscmd:ping_safe' %}">Ping a device - 안전한 코드</a></li>
+    <li><a href="{% url 'oscmd:program_vulnerable' %}">os.system 프로그램 실행 - 취약한 코드</a></li>
+    <li><a href="{% url 'oscmd:program_safe' %}">os.system 프로그램 실행 - 안전한 코드</a></li>
+</ul>
+<p><a href="/">← 홈</a></p>
+{% endblock %}

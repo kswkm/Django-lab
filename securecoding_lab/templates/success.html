@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}성공{% endblock %}
+{% block content %}
+<p>처리가 완료되었습니다.{% if filename %} 저장된 파일: {{ filename }}{% endif %}</p>
+<p><a href="/">← 홈</a></p>
+{% endblock %}

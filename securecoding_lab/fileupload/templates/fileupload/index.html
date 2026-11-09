@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}위험한 형식 파일 업로드{% endblock %}
+{% block content %}
+<h2>위험한 형식 파일 업로드</h2>
+<ul>
+    <li><a href="{% url 'fileupload:upload_vulnerable' %}">검증 없는 업로드 - 취약한 코드</a></li>
+    <li><a href="{% url 'fileupload:upload_safe' %}">4단계 검증 업로드 - 안전한 코드</a></li>
+</ul>
+<p><a href="/">← 홈</a></p>
+{% endblock %}

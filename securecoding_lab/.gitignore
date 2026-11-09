@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
+media/screenshot/*
+media/vuln_uploads/*
+!media/screenshot/.gitkeep
+!media/vuln_uploads/.gitkeep
+scripts/samples/
+.idea/

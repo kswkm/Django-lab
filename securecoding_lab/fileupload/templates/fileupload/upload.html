@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}파일 업로드{% endblock %}
+{% block content %}
+<h2>파일 업로드{% if safe %} (안전한 코드){% else %} (취약한 코드){% endif %}</h2>
+<form method="post" action="{% url action_url %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="upload_file" multiple>
+    <input type="submit" value="업로드">
+</form>
+{% if errors %}
+<ul>
+    {% for e in errors %}<li style="color:red">{{ e }}</li>{% endfor %}
+</ul>
+{% endif %}
+{% if saved %}
+<ul>
+    {% for f in saved %}<li>{% if f.origin %}{{ f.origin }} → {% endif %}<a href="{{ f.url }}">{{ f.name }}</a></li>{% endfor %}
+</ul>
+{% endif %}
+<p><a href="{% url 'fileupload:index' %}">← 돌아가기</a></p>
+{% endblock %}
